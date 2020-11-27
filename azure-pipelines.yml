@@ -50,7 +50,7 @@ stages:
                     Import-Module UiPath.Powershell
                     echo $(Build.ArtifactStagingDirectory)
                     $token = Get-UiPathAuthToken -ClientId $(uatClientId) -UserKey $(uatUserKey) -CloudDeployment 'Production' 
-                    Add-UiPathPackage -PackageFile $(Build.ArtifactStagingDirectory)\UIPath_HelloWorld.1.0.$(Build.BuildNumber).nupkg -AuthToken $token     
+                    Add-UiPathPackage -PackageFile $(Build.ArtifactStagingDirectory)\hellowWorld1.1.0.$(Build.BuildNumber).nupkg -AuthToken $token     
                     $json = "{""grant_type"": ""refresh_token"",""client_id"": ""8DEv1AMNXczW3y4U15LL3jYf62jK93n5"",""refresh_token"": ""QRmXGXIFFhZuS75nD6vzcluLEdDJadZqJNiVvSXl4P87D""}"
                     $out = Invoke-WebRequest "https://account.uipath.com/oauth/token" -Method Post -Body $json -ContentType "application/json" -UseBasicParsing
                     $token = $out | ConvertFrom-Json
